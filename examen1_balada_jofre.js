@@ -1,25 +1,20 @@
+// Node.js program to demonstrate the
+// fs.readdir() method
+
+// Import the filesystem module
 const fs = require('fs');
 const path = require('path');
 
-let data = ""
+// Function to get current filenames
+// in directory with specific extension
 fs.readdir(__dirname, (err, files) => {
-    if(!files.length == 0){
-        console.log('San trobat '+files.length+' en el directori'+__dirname);
-        files.forEach(file => {
-            if (path.extname(file) == ".txt")
-              data = data +file
-          })
-        fs.writeFile("log_file.txt", data, (err) => {
-            if (err)
-                console.log(err);
-            else {
-                console.log("File written successfully\n");
-            }
-            });
-    }else{console.log('No hi han fitxers en el directori'+__dirname)}
-   
-});
-
-
-
-
+if (err)
+	console.log(err);
+else {
+	console.log("\Filenames with the .txt extension:");
+	files.forEach(file => {
+	if (path.extname(file) == ".txt")
+		console.log("S'ha llegit el "+file);
+	})
+}
+})
