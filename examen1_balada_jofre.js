@@ -1,13 +1,15 @@
 // Node.js program to demonstrate the
-// fs.mkdir() Method
+// fs.open() Method
 
-// Include fs and path module
-const fs = require('fs');
-const path = require('path');
+// Include the fs module
+var fs = require('fs');
 
-fs.mkdir(path.join(__dirname, 'log_programa'), (err) => {
-	if (err) {
-		return console.error("Directory already exists in : "+__dirname);
-	}
-	console.log('Directory log_programa created successfully in : '+__dirname);
+console.log("Open file!");
+
+// To open file in write and read mode,
+// create file if doesn't exists.
+fs.open('log_programa/log_file.txt', 'w+', function (err, f) {
+if (err) {
+	return console.error(err);
+}
 });
